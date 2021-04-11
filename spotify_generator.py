@@ -9,7 +9,6 @@ def getRandomString(length): #Letters and numbers
 def getRandomText(length): #Chars only
     return "".join(random.choice(string.ascii_lowercase) for i in range(length))
 
-
 def main():
     print("==Spotify Account Generator==\n")
     print("Setting up..")
@@ -33,7 +32,7 @@ def main():
     headers={"Accept-Encoding": "gzip",
              "Accept-Language": "en-US",
              "Connection": "Keep-Alive",
-             "Content-Type": "Content-Type: application/x-www-form-urlencoded",
+             "Content-Type": "application/x-www-form-urlencoded",
              "Host": "spclient.wg.spotify.com",
              "User-Agent": "Spotify/8.6.16 Android/22 (SM-N976N)",
              "Spotify-App-Version": "8.6.16",
