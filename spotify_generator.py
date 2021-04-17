@@ -35,7 +35,7 @@ def generate():
             "email": email,
             "birth_day": random.randint(1, 20)}
     
-    r = requests.post('https://spclient.wg.spotify.com/signup/public/v1/accoun/', headers=headers, data=payload)
+    r = requests.post('https://spclient.wg.spotify.com/signup/public/v1/account/', headers=headers, data=payload)
 
     if r.status_code==200:
         if r.json()['status']==1:
