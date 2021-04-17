@@ -8,17 +8,17 @@ This Python3 script instantly generates a new Spotify account (with random crede
 "requests" module: `pip install requests`
 
 # Usage
-Simply run it using without arguments to generate one account and print its credentials to the console:
+Simply run it using without arguments to generate one account and print its credentials to the console:<br>
 `python spotify_generator.py`
 
-You can also specify the amount of accounts to generate and a file to save  their credentials:
+You can also specify the amount of accounts to generate and a file to save  their credentials:<br>
 `python spotify_generator.py -n AMOUNT -o OUTPUT_FILE`
 
-The creadentials will be in the following format:
+The creadentials will be in the following format:<br>
 `NICKNAME:USERNAME:EMAIL:PASSWORD`
 
 # Donate
 If you want to support my developments you are welcome to offer me a beer :smiley:
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?business=P9UVNFTYEGTUE&currency_code=EUR)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?business=P9UVNFTYEGTUE&currency_code=EUR)<br>
 **BTC:** 1BMWGf8S9mHyaz52a85D6WRor719f6Fw5r
