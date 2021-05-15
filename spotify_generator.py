@@ -14,16 +14,16 @@ def generate():
 
     headers={"Accept-Encoding": "gzip",
              "Accept-Language": "en-US",
+             "App-Platform": "Android",
              "Connection": "Keep-Alive",
              "Content-Type": "application/x-www-form-urlencoded",
              "Host": "spclient.wg.spotify.com",
-             "User-Agent": "Spotify/8.6.16 Android/22 (SM-N976N)",
-             "Spotify-App-Version": "8.6.16",
-             "App-Platform": "Android",
+             "User-Agent": "Spotify/8.6.26 Android/29 (SM-N976N)",
+             "Spotify-App-Version": "8.6.26",
              "X-Client-Id": getRandomString(32)}
     
     payload = {"creation_point": "client_mobile",
-            "gender": "male",
+            "gender": "male" if random.randint(0, 1) else "female",
             "birth_year": random.randint(1990, 2000),
             "displayname": nick,
             "iagree": "true",
@@ -41,7 +41,7 @@ def generate():
         if r.json()['status']==1:
             return (True, nick+":"+r.json()["username"]+":"+email+":"+passw)
         else:
-            #Details in r.json()["errors"]
+            #Details available in r.json()["errors"]
             return (False, "Could not create the account, some errors occurred")
     else:
         return (False, "Could not load the page. Response code: "+ str(r.status_code))
@@ -61,6 +61,7 @@ if __name__ == "__main__":
         result = generate()
         if result[0]:
             print(result[1], file=file)
+            print(result[1], file=sys.stdout)
         else:
             print(str(i+1)+"/"+str(N)+": "+result[1], file=sys.stdout)
 
