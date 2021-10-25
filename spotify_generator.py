@@ -18,8 +18,8 @@ def generate():
              "Connection": "Keep-Alive",
              "Content-Type": "application/x-www-form-urlencoded",
              "Host": "spclient.wg.spotify.com",
-             "User-Agent": "Spotify/8.6.26 Android/29 (SM-N976N)",
-             "Spotify-App-Version": "8.6.26",
+             "User-Agent": "Spotify/8.6.72 Android/29 (SM-N976N)",
+             "Spotify-App-Version": "8.6.72",
              "X-Client-Id": getRandomString(32)}
     
     payload = {"creation_point": "client_mobile",
@@ -42,6 +42,7 @@ def generate():
             return (True, nick+":"+r.json()["username"]+":"+email+":"+passw)
         else:
             #Details available in r.json()["errors"]
+            #print(r.json()["errors"])
             return (False, "Could not create the account, some errors occurred")
     else:
         return (False, "Could not load the page. Response code: "+ str(r.status_code))
@@ -53,7 +54,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     N = args.number if args.number else 1
-    file = open(args.output, "w") if args.output else sys.stdout
+    file = open(args.output, "a") if args.output else sys.stdout
 
     print("Generating accounts in the following format:", file=sys.stdout)
     print("NICKNAME:USERNAME:EMAIL:PASSWORD\n", file=sys.stdout)
@@ -61,7 +62,8 @@ if __name__ == "__main__":
         result = generate()
         if result[0]:
             print(result[1], file=file)
-            print(result[1], file=sys.stdout)
+            if file is not sys.stdout:
+                print(result[1], file=sys.stdout)
         else:
             print(str(i+1)+"/"+str(N)+": "+result[1], file=sys.stdout)
 
